@@ -3,8 +3,9 @@ import host from "./host";
 export async function getAllParticipants() {
   const requestOptions = {
     method: "GET",
+    // mode: "no-cors",
     headers: {
-      "Access-Control-Allow-Origin": "*",
+      // "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json",
     },
   };
