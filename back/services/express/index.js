@@ -6,7 +6,12 @@ import cors from "cors";
 export default (apiRoot, routes) => {
   const app = express();
 
-  app.use(cors());
+  let corsOptions = {
+    origin: 'https://track-list-front.vercel.app',
+    optionsSuccessStatus: 200
+  }
+
+  app.use(cors(corsOptions));
   // app.use(bodyParser.json());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
