@@ -4,8 +4,6 @@ export async function addParticipant({ firstName, name, email, phone }) {
   const requestOptions = {
     method: "POST",
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Content-Type",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
