@@ -169,6 +169,16 @@ h2 {
   text-align: center;
 }
 
+.participants-list {
+  display: none;
+}
+
+.participants-list div {
+  padding: 20px;
+  margin-bottom: 40px;
+  border: 1px solid #a5b4fc;
+}
+
 @media screen and (max-width: 996px) {
   header nav {
     flex-direction: column;
@@ -204,5 +214,14 @@ h2 {
 
   .section-form {
     padding: 50px 20px;
+  }
+
+  table {
+    display: none;
+  }
+
+  .participants-list {
+    display: flex;
+    flex-direction: column;
   }
 }

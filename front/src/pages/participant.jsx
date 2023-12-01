@@ -51,6 +51,16 @@ function Participant() {
               ))}
             </tbody>
           </table>
+          <div className="participants-list">
+            {participants.map((user) => (
+              <div key={user._id}>
+                <p>{user.name}</p>
+                <p>{user.firstName}</p>
+                <p>{user.email}</p>
+                <p>{user.phone}</p>
+              </div>
+            ))}
+          </div>
           {error && (
             <div className="form-column">
               <span className="response">{error}</span>
