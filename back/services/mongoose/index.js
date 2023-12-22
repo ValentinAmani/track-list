@@ -2,6 +2,9 @@ import mongoose from "mongoose";
 import Promise from "bluebird";
 
 mongoose.Promise = Promise;
+mongoose.Types.ObjectId.prototype.view = function () {
+  return { id: this.toString() };
+};
 
 mongoose.connection.once("open", (_) => {
   console.log("Database connected");

@@ -1,22 +1,15 @@
 import { Router } from "express";
 import { middleware as body } from "bodymen";
-import { getParticipant, addParticipant } from "./controllers";
+import { signup, login } from "./controllers";
 
 const router = Router();
 
-router.get("/", getParticipant);
-
 router.post(
-  "/",
+  "/signup",
   body({
-    firstName: {
+    userName: {
       type: String,
-      match: /^[a-zA-Z-]{2,}$/,
-      required: true,
-    },
-    name: {
-      type: String,
-      match: /^[a-zA-Z-]{2,}$/,
+      match: /^[a-zA-Z][a-zA-Z0-9_ -]{1,}$/,
       required: true,
     },
     email: {
@@ -24,13 +17,30 @@ router.post(
       match: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
       required: true,
     },
-    phone: {
+    password: {
       type: String,
-      match: /^.{10,}$/,
+      match: /.{4,}/,
       required: true,
     },
   }),
-  addParticipant
+  signup
+);
+
+router.post(
+  "/login",
+  body({
+    email: {
+      type: String,
+      match: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+      required: true,
+    },
+    password: {
+      type: String,
+      match: /.{4,}/,
+      required: true,
+    },
+  }),
+  login
 );
 
 export default router;

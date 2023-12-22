@@ -1,23 +1,23 @@
 import Participant from "../../../models/participant";
 
-export default async (req, res, next) => {
+export default async ({ body }, res, next) => {
   try {
     const participant = await Participant.findOne({
-      email: req.body.email,
+      email: body.email,
     });
 
     if (participant) {
-      res.status(400).json({
+      res.status(401).json({
         success: false,
         message: "Ce participant est déjà dans la liste.",
       });
     }
 
     await Participant.create({
-      firstName: req.body.firstName,
-      name: req.body.name,
-      phone: req.body.phone,
-      email: req.body.email,
+      firstName: body.firstName,
+      name: body.name,
+      phone: body.phone,
+      email: body.email,
     });
 
     res.status(201).json({

@@ -1,11 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
-const participantSchema = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-  },
-  name: {
+const userSchema = new Schema({
+  userName: {
     type: String,
     required: true,
   },
@@ -13,11 +9,11 @@ const participantSchema = new Schema({
     type: String,
     required: true,
   },
-  phone: {
+  password: {
     type: String,
     required: true,
   },
 });
 
-const model = mongoose.model("Participant", participantSchema);
+const model = mongoose.model("User", userSchema);
 export default model;
