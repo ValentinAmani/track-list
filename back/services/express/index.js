@@ -3,7 +3,6 @@ import morgan from "morgan";
 import cors from "cors";
 import { errorHandler as queryErrorHandler } from "querymen";
 import { errorHandler as bodyErrorHandler } from "bodymen";
-import cookieParser from "cookie-parser";
 
 export default (apiRoot, routes) => {
   const app = express();
@@ -16,7 +15,6 @@ export default (apiRoot, routes) => {
   app.use(apiRoot, routes);
   app.use(queryErrorHandler());
   app.use(bodyErrorHandler());
-  app.use(cookieParser());
 
   return app;
 };
